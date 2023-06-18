@@ -1,0 +1,46 @@
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <link href="{% static 'temp2/assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'temp2/assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'temp2/assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'temp2/assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'temp2/assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+  <link href="{% static 'temp2/assets/css/style.css'%}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <header id="header" class="fixed-top header">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">MUSIC SHARING PORTAL</a></h1>
+
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="{% url 'upload' %}#about">UPLOAD</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'viewmusic' %}#about">VIEW MUSICS</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'viewmysong' %}#about"> MY LIST</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'viewmyprivatesong' %}#about">PRIVATE LIST</a></li>
+
+
+          <li>  <td><a href="logout">LOGOUT</a> </td>
+          </li></ul></nav></div></header>
+
+
+  <br><br><br>
+ <section id="about" class="about">
+      <div class="container">
+        {% block body %}
+        {% endblock %}
+      </div>
+ </section>
+
+</body>
+
+</html>

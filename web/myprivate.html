@@ -1,0 +1,27 @@
+{% extends 'music_sharing_portal.html' %}
+{% block body %}
+
+<body>
+<h4>YOUR PRIVATE LIST</h4>
+<form id="form1" name="form1" method="post" action="">
+  <div align="center">
+    <table width="476" border="1" class="table table-striped">
+      <tr>
+        <th width="700" height="40" scope="col">SONG NAME </th>
+        <th width="94" scope="col">TYPE</th>
+        <th width="123" scope="col">PLAY</th>
+        <th width="123" scope="col">DELETE</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td height="54">&nbsp;{{i.music}}</td>
+        <td>{{i.type}}&nbsp;</td>
+        <td><a href="./media/{{i.music}}">play</a></td>
+         <td><a href="{% url 'delete_music' id=i.id %}">delete</a></td>
+      </tr>
+      {% endfor %}
+      </table>
+  </div>
+</form>
+</body>
+{% endblock %}

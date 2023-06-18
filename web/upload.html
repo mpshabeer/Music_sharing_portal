@@ -1,0 +1,56 @@
+{% extends 'music_sharing_portal.html' %}
+{% block body %}
+    <title>Music Upload</title>
+</head>
+<body>
+
+    <form id="form1" name="form1" method="post" action="/savemusic" enctype="multipart/form-data">
+        <div align="center">
+            <table width="200" border="1" class="table table-striped" >
+                <tr>
+                    <th scope="row">Upload MUSIC FILE (AUDIO) </th>
+                    <td>
+                        <input type="file" name="mp3" accept="audio/mp3"  required/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>
+                        <select name="select" id="select">
+                            <option value="private">private</option>
+                            <option value="public">public</option>
+                            <option value="protected">protected</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="emailDiv" style="display: none;">
+                    <th scope="row">
+                        <label for="emailAddresses">Allowed Email Addresses (comma-separated):</label>
+                    </th>
+                    <td>
+                        <textarea type="text" id="emailAddresses" name="emailAddresses"> </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">&nbsp;</th>
+                    <td>
+                        <input type="submit" name="Submit" value="Submit" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <script>
+        var selectElement = document.getElementById('select');
+        var emailDiv = document.getElementById('emailDiv');
+
+        selectElement.addEventListener('change', function() {
+            if (selectElement.value === 'protected') {
+                emailDiv.style.display = 'table-row';
+            } else {
+                emailDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+{% endblock %}
